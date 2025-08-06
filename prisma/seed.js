@@ -1,5 +1,4 @@
 const { PrismaClient } = require('@prisma/client');
-<<<<<<< HEAD
 const prisma = new PrismaClient();
 
 async function main() {
@@ -250,29 +249,3 @@ main()
   .finally(async () => {
     await prisma.$disconnect()
   })
-=======
-const bcrypt = require('bcrypt');
-
-const prisma = new PrismaClient();
-
-async function main() {
-  const hashedPassword = await bcrypt.hash("test1234", 10);
-
-  await prisma.user.upsert({
-    where: { email: "admin@crm.com" },
-    update: {},
-    create: {
-      email: "admin@crm.com",
-      password: hashedPassword,
-      name: "CRM Admin",
-    },
-  });
-
-  console.log("✅ User seeded");
-}
-
-main()
-  .catch(console.error)
-  .finally(() => prisma.$disconnect());
-node prisma/seed.js
->>>>>>> 1c44f76ca5201d81dc8eac0d53181909f22690b9

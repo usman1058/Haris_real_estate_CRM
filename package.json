@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "hr_crm2",
   "version": "0.1.0",
   "private": true,
@@ -7,25 +6,14 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
-=======
-  "name": "hr_crm",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
     "lint": "next lint",
     "seed": "ts-node --compiler-options \"{\\\"module\\\":\\\"commonjs\\\"}\" prisma/seed.ts",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
->>>>>>> 1c44f76ca5201d81dc8eac0d53181909f22690b9
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
-<<<<<<< HEAD
     "@heroicons/react": "^2.2.0",
     "@mui/icons-material": "^7.2.0",
     "@mui/material": "^7.2.0",
@@ -64,7 +52,13 @@
     "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^4.0.1",
     "@eslint/eslintrc": "^3.3.1",
+    "@storybook/addon-a11y": "^9.0.18",
+    "@storybook/addon-docs": "^9.0.18",
+    "@storybook/addon-onboarding": "^9.0.18",
+    "@storybook/addon-vitest": "^9.0.18",
+    "@storybook/nextjs-vite": "^9.0.18",
     "@tailwindcss/postcss": "^4.1.11",
     "@types/bcrypt": "^6.0.0",
     "@types/node": "^20.19.9",
@@ -75,6 +69,7 @@
     "autoprefixer": "^10.4.21",
     "eslint": "^9.32.0",
     "eslint-config-next": "^15.4.4",
+    "eslint-plugin-storybook": "^9.0.18",
     "playwright": "^1.54.2",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
@@ -87,59 +82,11 @@
   },
   "prisma": {
     "seed": "node prisma/seed.js"
-  }
-=======
-    "@mui/icons-material": "^7.2.0",
-    "@mui/material": "^7.2.0",
-    "@mui/x-data-grid": "^8.9.2",
-    "@mui/x-data-grid-generator": "^8.9.1",
-    "@prisma/client": "^6.13.0",
-    "bcrypt": "^6.0.0",
-    "chart.js": "^4.5.0",
-    "effect": "^3.17.4",
-    "lucide-react": "^0.536.0",
-    "next": "15.4.4",
-    "next-auth": "^4.24.11",
-    "react": "19.1.0",
-    "react-chartjs-2": "^5.3.0",
-    "react-dom": "19.1.0",
-    "sass": "^1.89.2"
   },
-  "devDependencies": {
-    "@chromatic-com/storybook": "^4.0.1",
-    "@eslint/eslintrc": "^3",
-    "@storybook/addon-a11y": "^9.0.18",
-    "@storybook/addon-docs": "^9.0.18",
-    "@storybook/addon-onboarding": "^9.0.18",
-    "@storybook/addon-vitest": "^9.0.18",
-    "@storybook/nextjs-vite": "^9.0.18",
-    "@tailwindcss/postcss": "^4.1.11",
-    "@types/bcrypt": "^6.0.0",
-    "@types/node": "^20.19.9",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "@vitest/browser": "^3.2.4",
-    "@vitest/coverage-v8": "^3.2.4",
-    "autoprefixer": "^10.4.21",
-    "eslint": "^9",
-    "eslint-config-next": "15.4.4",
-    "eslint-plugin-storybook": "^9.0.18",
-    "playwright": "^1.54.1",
-    "postcss": "^8.5.6",
-    "prettier": "^3.6.2",
-    "prisma": "^6.13.0",
-    "saas": "^1.0.0",
-    "storybook": "^9.0.18",
-    "tailwindcss": "^4.1.11",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.8.3",
-    "vitest": "^3.2.4"
-  },
-  "description": "This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).",
+  "description": "Haris Real Estate CRM project",
   "main": "postcss.config.js",
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs"
->>>>>>> 1c44f76ca5201d81dc8eac0d53181909f22690b9
+  "type": "module"
 }
