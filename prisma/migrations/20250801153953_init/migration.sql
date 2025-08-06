@@ -1,0 +1,25 @@
+-- CreateTable
+CREATE TABLE "Dealer" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "name" TEXT NOT NULL,
+    "properties" INTEGER NOT NULL
+);
+
+-- CreateTable
+CREATE TABLE "Inventory" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "title" TEXT NOT NULL,
+    "location" TEXT NOT NULL,
+    "size" TEXT NOT NULL,
+    "price" REAL NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+
+-- CreateTable
+CREATE TABLE "Demand" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "size" TEXT NOT NULL,
+    "location" TEXT NOT NULL,
+    "budget" REAL NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);

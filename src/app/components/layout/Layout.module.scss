@@ -1,0 +1,12 @@
+.layout{
+    padding: 0 24px 0 80px;
+    max-width:85rem;
+    margin: auto;
+}
+
+@media screen and (min-width: 1700px) {
+    .layout{
+        padding: 0 24px;
+        max-width: 92rem;
+    }
+}
