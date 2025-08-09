@@ -216,3 +216,7 @@ export function AppHeader() {
     </header>
   )
 }
+
+
+
+export default AppHeader

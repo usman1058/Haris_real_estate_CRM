@@ -1,25 +1,24 @@
-// app/api/dealer/[id]/route.ts
+// app/api/dealers/[id]/route.ts
 import { NextRequest, NextResponse } from "next/server";
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-/* ================== GET /api/dealer/[id] ================== */
-export async function GET(
-  req: NextRequest,
-  { params }: { params: { id: string } }
-) {
+interface Params {
+  params: { id: string };
+}
+
+/* ================== GET /api/dealers/[id] ================== */
+export async function GET(req: NextRequest, context: Params) {
   try {
-    const dealerId = parseInt(params.id);
+    const dealerId = parseInt(context.params.id);
     if (isNaN(dealerId)) {
       return NextResponse.json({ error: "Invalid dealer ID" }, { status: 400 });
     }
 
     const dealer = await prisma.dealer.findUnique({
       where: { id: dealerId },
-      include: {
-        properties: true, // include related inventory items
-      },
+      include: { properties: true },
     });
 
     if (!dealer) {
@@ -33,13 +32,10 @@ export async function GET(
   }
 }
 
-/* ================== PUT /api/dealer/[id] ================== */
-export async function PUT(
-  req: NextRequest,
-  { params }: { params: { id: string } }
-) {
+/* ================== PUT /api/dealers/[id] ================== */
+export async function PUT(req: NextRequest, context: Params) {
   try {
-    const dealerId = parseInt(params.id);
+    const dealerId = parseInt(context.params.id);
     if (isNaN(dealerId)) {
       return NextResponse.json({ error: "Invalid dealer ID" }, { status: 400 });
     }
@@ -63,13 +59,10 @@ export async function PUT(
   }
 }
 
-/* ================== DELETE /api/dealer/[id] ================== */
-export async function DELETE(
-  req: NextRequest,
-  { params }: { params: { id: string } }
-) {
+/* ================== DELETE /api/dealers/[id] ================== */
+export async function DELETE(req: NextRequest, context: Params) {
   try {
-    const dealerId = parseInt(params.id);
+    const dealerId = parseInt(context.params.id);
     if (isNaN(dealerId)) {
       return NextResponse.json({ error: "Invalid dealer ID" }, { status: 400 });
     }
