@@ -1,4 +1,4 @@
-import NextAuth from "next-auth";
+import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaClient } from "@prisma/client";
@@ -6,7 +6,7 @@ import bcrypt from "bcrypt";
 
 const prisma = new PrismaClient();
 
-const authOptions = {
+export const authOptions: NextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_ID!,
@@ -18,7 +18,9 @@ const authOptions = {
         email: { label: "Email", type: "text" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials: any) {
+      async authorize(credentials) {
+        if (!credentials?.email || !credentials?.password) return null;
+
         const user = await prisma.user.findUnique({
           where: { email: credentials.email },
         });
@@ -37,11 +39,11 @@ const authOptions = {
   },
   callbacks: {
     async jwt({ token, user }) {
-      if (user) token.id = user.id;
+      if (user) token.id = (user as any).id;
       return token;
     },
     async session({ session, token }) {
-      if (token) session.user.id = token.id;
+      if (token) (session.user as any).id = token.id;
       return session;
     },
   },
@@ -51,5 +53,4 @@ const authOptions = {
 };
 
 const handler = NextAuth(authOptions);
-
 export { handler as GET, handler as POST };
