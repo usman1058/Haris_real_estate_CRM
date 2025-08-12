@@ -4,12 +4,11 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-interface Params {
-  params: { id: string };
-}
-
 /* ================== GET /api/dealers/[id] ================== */
-export async function GET(req: NextRequest, context: Params) {
+export async function GET(
+  req: NextRequest,
+  context: { params: { id: string } }
+) {
   try {
     const dealerId = parseInt(context.params.id);
     if (isNaN(dealerId)) {
@@ -33,7 +32,10 @@ export async function GET(req: NextRequest, context: Params) {
 }
 
 /* ================== PUT /api/dealers/[id] ================== */
-export async function PUT(req: NextRequest, context: Params) {
+export async function PUT(
+  req: NextRequest,
+  context: { params: { id: string } }
+) {
   try {
     const dealerId = parseInt(context.params.id);
     if (isNaN(dealerId)) {
@@ -60,7 +62,10 @@ export async function PUT(req: NextRequest, context: Params) {
 }
 
 /* ================== DELETE /api/dealers/[id] ================== */
-export async function DELETE(req: NextRequest, context: Params) {
+export async function DELETE(
+  req: NextRequest,
+  context: { params: { id: string } }
+) {
   try {
     const dealerId = parseInt(context.params.id);
     if (isNaN(dealerId)) {
